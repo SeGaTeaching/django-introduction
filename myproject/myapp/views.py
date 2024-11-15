@@ -103,3 +103,12 @@ def form(request):
     """
     method = request.method
     return render(request, 'form.html', {'method': method})
+
+from django.contrib.sessions.models import Session
+def get_session_data(session_key):
+    try:
+        session = Session.objects.get(session_key=session_key)
+        data = session.get_decoded()
+        return(data)
+    except Session.DoesNotExist:
+        return 'Session not found.'

@@ -6,6 +6,6 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('request/', views.show, name='show'),
     path('request/json/', views.heike),
-    path('response', views.answer),
+    path('response/', views.answer),
     path('forms/', views.form, name='form'),
 ]

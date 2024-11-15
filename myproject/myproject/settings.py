@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # My Apps
     'myapp',
     'greet',
+    'db_intro',
     
     # Default Apps
     'django.contrib.admin',
