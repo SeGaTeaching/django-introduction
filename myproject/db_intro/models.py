@@ -40,7 +40,7 @@ class Course(models.Model):
     def __str__(self):
         return f'Course: {self.title} Students: {self.students}'
     
-# ZwischenModell für ManytoMany Relationships erstellen
+# Zwischen Modell für ManytoMany Relationships erstellen
 class Membership(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
