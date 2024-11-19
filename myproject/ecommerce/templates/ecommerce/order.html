@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Order</title>
+</head>
+<body>
+    <h1>Create Order</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="customer">Select Customer:</label>
+        <select name="customer_id" id="customer">
+            {% for customer in customers %}
+                <option value="{{ customer.id }}">{{ customer.name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <label for="products">Select Products:</label>
+        <br>
+        {% for product in products %}
+            <input type="checkbox" name="product_ids" value="{{ product.id }}">
+            {{ product.name }} ({{ product.price }} USD)<br>
+        {% endfor %}
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

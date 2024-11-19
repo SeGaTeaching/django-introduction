@@ -24,4 +24,5 @@ urlpatterns = [
     path('intro/', include('myapp.urls')),
     path('greet/', include('greet.urls')),
     path('dbi/', include('db_intro.urls')),
+    path('order/', include('ecommerce.urls')),
 ]
