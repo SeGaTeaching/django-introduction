@@ -27,6 +27,7 @@ def index(request):
 
 def simple(request):
     if request.method == 'POST':
+        post_data = request.POST.dict()
         name = request.POST.get('name')
         city = request.POST.get('city')
         email = request.POST.get('email'),
@@ -38,10 +39,12 @@ def simple(request):
             email=email,
             product=product
         )
-        
         order.save()
         
-        return HttpResponse((f"<h1>Thank you, {name}!</h1><p>Your order for {product} has been placed.</p>"))
+        # Anzeigenamen des Produkts abrufen
+        product_name = order.get_product_display()  
+              
+        return HttpResponse((f"<h1>Thank you, {name}!</h1><p>Your order for {product_name} has been placed.</p><p>{post_data}</p>"))
         
         
     return render(request, 'ecommerce/simple.html')

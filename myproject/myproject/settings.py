@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'db_intro',
     'ecommerce',
     'book',
+    'django_forms',
     
     # Default Apps
     'django.contrib.admin',

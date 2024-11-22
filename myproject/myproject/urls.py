@@ -26,4 +26,5 @@ urlpatterns = [
     path('dbi/', include('db_intro.urls')),
     path('order/', include('ecommerce.urls')),
     path('book/', include('book.urls')),
+    path('form/', include('django_forms.urls')),
 ]
