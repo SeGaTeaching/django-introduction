@@ -28,4 +28,5 @@ urlpatterns = [
     path('book/', include('book.urls')),
     path('form/', include('django_forms.urls')),
     path('events/', include('events.urls')),
+    path('newyear/', include('newyear.urls')),
 ]

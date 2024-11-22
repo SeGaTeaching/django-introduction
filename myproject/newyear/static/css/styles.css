@@ -1,0 +1,29 @@
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    place-content: center center;
+    transition: background-color 5s, color 5s;
+}
+
+body {
+    background-color: white;
+    color: black;
+}
+
+h1 {
+    font-size: 15rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+}

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'book',
     'django_forms',
     'events',
+    'newyear',
     
     # Default Apps
     'django.contrib.admin',
