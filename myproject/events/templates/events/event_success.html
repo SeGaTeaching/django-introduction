@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Created</title>
+</head>
+<body>
+    <h1>Event Created Successfully!</h1>
+    <p>Your event has been added to the system.</p>
+    <h2>Your saved Data</h2>
+    {% if form %}
+        {% for key, value in form.items %}
+        <p>{{ key }}: {{ value }}</p>
+        {% endfor %}
+    {% endif %}
+    {% if event %}
+    <p><strong>Name:</strong> {{ event.title }}</p>
+    <p><strong>Date:</strong> {{ event.date_time }}</p>
+    <p><strong>Location:</strong> {{ event.location }}</p>
+    <p><strong>Description:</strong> {{ event.description }}</p>
+    {% endif %}
+    <a href="/">Go back to home</a>
+</body>
+</html>
