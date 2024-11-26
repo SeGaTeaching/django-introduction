@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Filters for DTL{% endblock title %}
+
+{% block content %}
+    <h1>Django Filters Examples</h1>
+    <section>
+        <h2>1. Upper Letters</h2>
+        <p>Original: {{name}}</p>
+        <p>Upper: {{ name | upper }}</p>
+    </section>
+    <section>
+        <h2>2. Lower</h2>
+        <p>Original: {{ name }}</p>
+        <p>Lower: {{ name | lower }}</p>
+    </section>
+    <section>
+        <h2>3. Title</h2>
+        <p>Original: {{ name }}</p>
+        <p>Title: {{ name | title }}</p>
+    </section>
+    <section>
+        <h2>4. Length</h2>
+        <p>Original: {{ items }}</p>
+        <p>Length: {{ items | length }}</p>
+    </section>
+    <section>
+        <h2>5. First-Element</h2>
+        <p>Liste: {{ my_list }}</p>
+        <p>First Element: {{ my_list | first }}</p>
+    </section>
+
+    <section>
+        <h2>6. Last Element</h2>
+        <p>Liste: {{ my_list }}</p>
+        <p>Last Element: {{ my_list | last }}</p>
+    </section>
+
+    <section>
+        <h2>7. Join Elements</h2>
+        <p>Liste: {{ words }}</p>
+        <p>Joined: {{ words | join:"**" }}</p>
+    </section>
+
+    <section>
+        <h2>8. wordcount</h2>
+        <p>String: "{{ string }}"</p>
+        <p>Words: {{ string | wordcount }}</p>
+    </section>
+
+    <section>
+        <h2>9. Slicen</h2>
+        <p>Numbers: {{ numbers }}</p>
+        <p>numbers[1:3]: {{ numbers | slice:"1:3" }}</p>
+    </section>
+    {% endblock content %}

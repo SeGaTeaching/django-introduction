@@ -6,7 +6,8 @@ def index(request, name):
     return HttpResponse(f'Hello {name.title()} my friend, welcome')
 
 def walter(request):
-    return HttpResponse('Hello Walter!')
+    
+    return render(request, 'greet/greet.html', {'name': 'Waltraud'})
 
 def math(request, num1, num2):
     add = float(num1) * float(num2)

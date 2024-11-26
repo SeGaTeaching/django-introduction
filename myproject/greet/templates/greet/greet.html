@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super}} | Greetings Walter{% endblock title %}
+
+{% block content %}
+<h1>Hallo Walter</h1>
+<p><a href={% url 'greet:index' name %}>Link um {{ name }} zu grüßen</a></p>
+<p><a href={% url 'greet:math' 3 4 %}>Berechne</a></p>
+{% endblock content %}
+
+{% block js %}
+{{block.super}}
+<script src="superDuper.js"></script>
+{% endblock js %}
+
+
+

@@ -29,4 +29,5 @@ urlpatterns = [
     path('form/', include('django_forms.urls')),
     path('events/', include('events.urls')),
     path('newyear/', include('newyear.urls')),
+    path('template-tutorial/', include('dtl.urls')),
 ]

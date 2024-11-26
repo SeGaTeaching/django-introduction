@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }} | Home{% endblock title %}
+
+{% block content %}
+<h2>Welcome to the Home Page!</h2>
+<p>This is the homepage of our site.</p>
+{% endblock %}
+
+{% block footer %}
+{{ block.super }}
+<p><a href={% url 'dtl:filters' %}>Link zu Filter Example</a></p>
+<p><a href={% url 'dtl:index' %}>Homepage of this Django App</a></p>
+{% endblock footer %}
+

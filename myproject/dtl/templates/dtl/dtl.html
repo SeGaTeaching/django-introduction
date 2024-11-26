@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="oTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Template Langoage</title>
+</head>
+<body>
+    <h2>Dictionary Stoff</h2>
+    {{ person }}
+    <p>Name: {{person.name}}</p>
+    <p>Profession: {{person.profession}}</p>
+
+    <h2>Hobbies</h2>
+    <ul>
+        <li>{{ hobbies.0 }}</li>
+        <li>{{ hobbies.1 }}</li>
+        <li>{{ hobbies.2 }}</li>
+        <li>{{ hobbies.3 }}</li>
+        <li>{{ hobbies.4 }}</li>
+        <li>{{ hobbies.5 }}</li>
+    </ul>
+
+    <ol>
+        {% for hobby in hobbies %}
+        <li>{{ hobby | title }}</li>
+        {% endfor %}
+    </ol>
+
+    <h2>Programming Languages</h2>
+    <ul>
+        {% for lang in langs %}
+        <li>{{ lang }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Loop Counter</h3>
+    <ul>
+        {% for lang in langs %}
+        <li>{{ forloop.counter }} : {{lang}}</li>
+        {% endfor %}
+    </ul>
+    <h3>Reverse Counter</h3>
+    <ul>
+        {% for lang in langs %}
+        <li>{{ forloop.revcounter }} : {{lang}}</li>
+        {% endfor %}
+    </ul>
+    <h3>First</h3>
+    <ul>
+        {% for lang in langs %}
+        <li>{{ forloop.first }} : {{lang}}</li>
+        {% endfor %}
+    </ul>
+    <h3>Last</h3>
+    <ul>
+        {% for lang in langs %}
+        <li>{{ forloop.last }} : {{lang}}</li>
+        {% endfor %}
+    </ul>
+    <h2>Nested For Loop</h2>
+    {% for key, values in dct.items %}
+    <p>{{ forloop.counter }}: {{ key }}</p>
+    <ul>
+        {% for value in values %}
+        <li>{{ value }}</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+
+    <h2>Movies - if-statement </h2>
+    {% if movies %}
+    <ul>
+        {% for movie in movies %}
+            <li>{{movie}}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No movies to show yet</p>
+    {% endif %}
+
+    {% if music_bands %}
+    <h2>Music Bands</h2>
+    <p>my favorite Bands</p>
+    {% for band in music_bands %}
+    <li>{{band}}</li>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>
