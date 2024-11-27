@@ -30,4 +30,6 @@ urlpatterns = [
     path('events/', include('events.urls')),
     path('newyear/', include('newyear.urls')),
     path('template-tutorial/', include('dtl.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('movies/', include('movies.urls')),
 ]

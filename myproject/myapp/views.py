@@ -8,7 +8,7 @@ def greet(request):
     return HttpResponse('works')
 
 def index(request):
-    return HttpResponse('<h1>Intro</h1><p>Hallo ich bin erfolgreich aufgerufen</p>')
+    return render(request, 'index.html')
 
 def heike(request):
     # Benutzerdefinierte Funktion, die nicht serialisierbare Objekte in Strings konvertiert
