@@ -7,18 +7,17 @@
     <title>{% block title %}My Website{% endblock title %}</title>
     {% block stylesheet %}<link rel="stylesheet" href="{% static "css/styles.css" %}">{% endblock stylesheet %}
 </head>
-<body>
+<body class="{% block body_class %}{% endblock body_class %}">
     <!-- Header -->
     {% include 'partials/_header.html' %}
-
+    
     <main>
-        <div>
-            {% block content %}
-            <p>Hallo ich bin ein p-element in der base-html</p>
-            {% endblock content %}
-        </div>
+    <div>
+        {% block content %}
+        {% endblock content %}
+    </div>
     </main>
-
+    
     <!-- Footer -->
     <footer>
         {% block footer %}
@@ -26,6 +25,6 @@
         {% endblock footer %}
     </footer>
 
-{% block js %}<script src="main.js"></script>{% endblock js %}
+    {% block js %}<script src="{% static 'js/main.js' %}"></script>{% endblock js %}
 </body>
 </html>

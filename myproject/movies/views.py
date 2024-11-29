@@ -1,5 +1,5 @@
 import csv
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Movie
@@ -23,6 +23,28 @@ def add_movie(request):
     else:
         form = MovieForm()
     return render(request, 'movies/add_movie.html', {'form': form})
+
+# Edit Movie
+def edit_movie(request, movie_id):
+    movie = get_object_or_404(Movie, id=movie_id)
+    if request.method == 'POST':
+        form = MovieForm(request.POST, instance=movie)
+        if form.is_valid():
+            edit_movie = form.save(commit=False)
+            edit_movie.user = request.user
+            edit_movie.save()
+            return redirect('movies:watchlist')
+    else:
+        form = MovieForm(instance=movie)
+    return render(request, 'movies/edit_movies.html', {'form': form, 'movie': movie})
+
+# Delete Movie
+def delete_movie(request, movie_id):
+    movie = get_object_or_404(Movie, id=movie_id)
+    if request.method == 'POST':
+        movie.delete()
+        return redirect('movies:watchlist')
+    return render(request, 'movies/delete_movie.html', {'movie': movie})
 
 @login_required(login_url='accounts:login')
 def upload_csv(request):
