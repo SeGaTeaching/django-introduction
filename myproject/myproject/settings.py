@@ -87,12 +87,12 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # MySQL Database
 # DATABASES = {
@@ -107,16 +107,16 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # }
 
 # PostgreSQL Database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'intro_project',      # Name der Datenbank
-        'USER': 'intro_user',         # Benutzername
-        'PASSWORD': 'gummischuh', # Passwort
-        'HOST': '127.0.0.1',          # Standard: Lokale Verbindung
-        'PORT': '5432',               # Standard: PostgreSQL-Port
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'intro_project',      # Name der Datenbank
+#         'USER': 'intro_user',         # Benutzername
+#         'PASSWORD': 'gummischuh', # Passwort
+#         'HOST': '127.0.0.1',          # Standard: Lokale Verbindung
+#         'PORT': '5432',               # Standard: PostgreSQL-Port
+#     }
+# }
 
 
 # Password validation

@@ -1,7 +1,9 @@
+import csv
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Movie
-from .forms import MovieForm
+from .forms import MovieForm, CSVUploadForm
 
 # Create your views here.
 @login_required(login_url='accounts:login')
@@ -21,3 +23,37 @@ def add_movie(request):
     else:
         form = MovieForm()
     return render(request, 'movies/add_movie.html', {'form': form})
+
+@login_required(login_url='accounts:login')
+def upload_csv(request):
+    if request.method == 'POST':
+        form = CSVUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            csv_file = request.FILES.get('file')
+            # Check if file is a csv file
+            if not csv_file.name.endswith('.csv'):
+                messages.error(request, 'Please upload only CSV files.')
+                return render(request, 'movies/upload_csv.html', {'form': form})
+            
+            # Dekodieren und Zeilen einlesen
+            try:
+                decoded_file = csv_file.read().decode('utf-8').splitlines()
+                reader = csv.DictReader(decoded_file)
+                print(f'this is what I see: {reader}')
+
+                for row in reader:
+                    Movie.objects.create(
+                        user=request.user,
+                        title=row['title'],
+                        director=row['director'],
+                        release_year=row['release_year'],
+                        genre=row['genre'],
+                        imdb_url=row.get('imdb_url', '')
+                    )
+                return redirect('movies:watchlist')
+            
+            except Exception as e:
+                messages.error(request, f'Error while handling file: {str(e)}')
+    else:
+        form = CSVUploadForm()
+    return render(request, 'movies/upload_csv.html', {'form': form})

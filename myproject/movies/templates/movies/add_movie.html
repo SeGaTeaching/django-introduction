@@ -9,4 +9,5 @@
     {{ form.as_p }}
     <input type="submit" value="Add Movie">
 </form>
+<p><a href="{% url "movies:watchlist" %}">Go to Watchlist</a> | <a href="{% url "movies:upload_csv" %}">Upload a CSV File</a></p>
 {% endblock content %}
