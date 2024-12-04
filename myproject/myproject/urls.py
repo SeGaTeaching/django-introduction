@@ -32,4 +32,6 @@ urlpatterns = [
     path('template-tutorial/', include('dtl.urls')),
     path('accounts/', include('accounts.urls')),
     path('movies/', include('movies.urls')),
+    path('weather/', include('weather.urls')),
+    path('currency/', include('currency.urls')),
 ]

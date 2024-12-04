@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'newyear',
     'dtl',
     'movies',
+    'weather',
+    'currency',
     
     # Default Apps
     'django.contrib.admin',
