@@ -11,18 +11,20 @@
     <!-- Header -->
     {% include 'partials/_header.html' %}
     
+<div class="content-wrapper">
     <main>
-    <div>
         {% block content %}
         {% endblock content %}
-    </div>
     </main>
-    
+    {% block sidebar %}
+    {% endblock sidebar %}
+</div>
     <!-- Footer -->
     <footer>
         {% block footer %}
         <p>© 2024 My Website. All rights reserved.</p>
         {% endblock footer %}
+
     </footer>
 
     {% block js %}<script src="{% static 'js/main.js' %}"></script>{% endblock js %}

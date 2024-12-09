@@ -34,4 +34,5 @@ urlpatterns = [
     path('movies/', include('movies.urls')),
     path('weather/', include('weather.urls')),
     path('currency/', include('currency.urls')),
+    path('tasks/', include('tasks.urls')),
 ]

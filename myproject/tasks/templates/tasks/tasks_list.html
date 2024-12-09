@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}My Tasks{% endblock title %}
+
+{% block content %}
+<h1>My Tasks</h1>
+{% if tasks %}
+<ul id='tasks-list'>
+    {% for task in tasks %}
+        <li>{{ task.title }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>you haven't add any tasks yet</p>
+{% endif %}
+
+<h2>Add a task</h2>
+<form method='POST'>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Add task">
+</form>
+
+<hr>
+
+<h2>Add a task asynchronously</h2>
+<form id='async-task-form' action={% url 'tasks:add_task' %} method='POST'>
+    {% csrf_token %}
+    {{ async_form }}
+    <input id='async-form' type="submit" value="Add task">
+</form>
+
+{% endblock content %}
+
+{% block sidebar %}
+{% include 'partials/_weather.html' %}
+{% endblock sidebar %}

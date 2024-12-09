@@ -30,3 +30,7 @@
     <a href="{% url 'movies:add_movie' %}" class="btn btn-add">Add New Movie</a>
 </div>
 {% endblock content %}
+
+{% block sidebar %}
+{% include 'partials/_weather.html' %}
+{% endblock sidebar %}
